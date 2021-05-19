@@ -51,23 +51,28 @@ class App extends Component {
       borderRadius: "8px"
     }
 
+    let persons = null;
+
+    if(this.state.showPersons) {
+      persons = (
+        <div>
+          <Person 
+            name={this.state.persons[0].name} 
+            age={this.state.persons[0].age}>Hello world</Person>
+          <Person 
+            name={this.state.persons[1].name} 
+            age={this.state.persons[1].age}
+            changed={this.nameChangerHandler}
+            click={this.switchHandler.bind(this, 'Sam')} />
+        </div>
+      )
+    }
+
     return (
         <div className="App">
           <h1>Hello World</h1>
           <button style={style} onClick={this.toogleHandler}>show</button>
-         {
-           this.state.showPersons === true ?
-           <div>
-              <Person 
-                name={this.state.persons[0].name} 
-                age={this.state.persons[0].age}>Hello world</Person>
-              <Person 
-                name={this.state.persons[1].name} 
-                age={this.state.persons[1].age}
-                changed={this.nameChangerHandler}
-                click={this.switchHandler.bind(this, 'Sam')} />
-           </div> : null
-         }
+          {persons}
         </div>
       );
   }    
