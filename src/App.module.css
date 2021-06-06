@@ -1,0 +1,33 @@
+.App {
+  text-align: center;
+}
+
+.red {
+  color: red;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.button {
+  background-color: green;
+  border: 1px solid #ccc;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+
+}
+
+.button:hover {
+    background-color: lightgreen;
+    color: black;
+}
+
+.button.red {
+  background-color: red;
+}
+
+.button.red:hover {
+    background-color: salmon;
+}
