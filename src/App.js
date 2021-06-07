@@ -73,7 +73,7 @@ class App extends Component {
         <div className={classStyle.App}>
           <h1>Hello World</h1>
           <p className={classes.join(' ')}>This is really working</p>
-          <button className={btnClass.join(' ')} alt={this.state.showPersons} onClick={this.toogleHandler}>Display</button>
+          <button className={btnClass.join(' ')} onClick={this.toogleHandler}>Display</button>
           {persons}
         </div>
       );
