@@ -5,7 +5,10 @@ const Cookpit = (props) => {
 
     useEffect(() => {
         console.log('[Cookpit] useEffect');
-    })
+        setTimeout(() => {
+            alert('Saved');
+        }, 1000);
+    }, [])  //props.persons
 
     const classes = [];
     let btnClass = '';
