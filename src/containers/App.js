@@ -60,6 +60,7 @@ class App extends Component {
     return (
         <div className={classStyle.App}>
            <Cookpit 
+                title={this.props.appTitle}
                 showPersons={this.state.showPersons} 
                 persons={this.state.persons} 
                 clicked={this.toogleHandler}/>
