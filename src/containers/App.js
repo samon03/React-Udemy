@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import classStyle from './App.module.css';
-import Person from './Person/Person';
+import Persons from '../components/Persons/Persons';
+import Cookpit from '../components/Cookpit/Cookpit';
 
 class App extends Component {
 
@@ -44,37 +45,25 @@ class App extends Component {
   render () {
 
     let persons = null;
-    let btnClass = [classStyle.button];
 
     if(this.state.showPersons) {
       persons = (
         <div>
-          { this.state.persons.map((person, index) => {
-            return <Person 
-              click={() => {this.deleteHandler(index)}} 
-              name={person.name} age={person.age} key={person.id} 
-              changed={(event) => this.nameChangerHandler(event, person.id)} />
-          })}
+          <Persons
+              persons = {this.state.persons}
+              clicked={this.deleteHandler} 
+              changed={this.nameChangerHandler} />
         </div>
       );
-
-      btnClass.push(classStyle.red);
-    }
-
-    const classes = [];
-    if(this.state.persons.length <= 2) {
-        classes.push('red');
-    }
-    if(this.state.persons.length <= 1) {
-      classes.push('bold');
     }
 
     return (
         <div className={classStyle.App}>
-          <h1>Hello World</h1>
-          <p className={classes.join(' ')}>This is really working</p>
-          <button className={btnClass.join(' ')} onClick={this.toogleHandler}>Display</button>
-          {persons}
+           <Cookpit 
+                showPersons={this.state.showPersons} 
+                persons={this.state.persons} 
+                clicked={this.toogleHandler}/>
+            {persons}
         </div>
       );
   }    
