@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import classStyle from './Cookpit.module.css';
 
-const cookpit = (props) => {
+const Cookpit = (props) => {
+
+    useEffect(() => {
+        console.log('[Cookpit] useEffect');
+    })
 
     const classes = [];
     let btnClass = '';
@@ -27,4 +31,4 @@ const cookpit = (props) => {
 }
 
 
-export default cookpit;
+export default Cookpit;
