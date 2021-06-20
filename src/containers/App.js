@@ -10,7 +10,8 @@ class App extends Component {
         { id:'aswe', name: 'Samon', age: 25 },
         { id:'dfev', name: 'Emon', age: 22 }
       ],
-      showPersons: false
+      showPersons: false,
+      showCookpit: true
   }
 
   toogleHandler = () => {
@@ -59,12 +60,16 @@ class App extends Component {
 
     return (
         <div className={classStyle.App}>
-           <Cookpit 
+          <button onClick={() => { this.setState({ showCookpit: false }) }}>Remove Cookpit</button>
+           { this.state.showCookpit ? 
+              (
+                <Cookpit 
                 title={this.props.appTitle}
                 showPersons={this.state.showPersons} 
                 persons={this.state.persons} 
                 clicked={this.toogleHandler}/>
-            {persons}
+              ) : null }
+           {persons} 
         </div>
       );
   }    
