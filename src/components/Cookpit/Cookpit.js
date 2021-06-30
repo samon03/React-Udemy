@@ -5,11 +5,10 @@ const Cookpit = (props) => {
 
     useEffect(() => {
         console.log('[Cookpit] useEffect');
-        const timer = setTimeout(() => {
+        setTimeout(() => {
             alert('Saved');
         }, 1000);
         return () => { 
-            clearTimeout(timer);
             console.log("Clean up cookpit"); 
         }
     }, [])  //props.persons5
