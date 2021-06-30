@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { Component } from 'react';
 import classStyle from './Person.module.css';
+import Auxiliary from '../../../hoc/Auxiliary';
 
-const Person = (props) => {
-
-    return [
-        <p key="i1" onClick={props.click}>I am {props.name} and I am {props.age}</p>,
-        <p key="i2">{props.children}</p>,
-        <input key="i3" type="text" onChange={props.changed} value={props.name} />
-    ];
+class Person extends Component {
+   render() {
+        return (
+            <Auxiliary>
+                <p onClick={this.props.click}>I am {this.props.name} and I am {this.props.age}</p>
+                <p>{this.props.children}</p>
+                <input type="text" onChange={this.props.changed} value={this.props.name} />
+            </Auxiliary>  
+        );
+   }
+    
 }
 
 export default Person;
