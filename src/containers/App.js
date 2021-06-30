@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import classStyle from './App.module.css';
 import Persons from '../components/Persons/Persons';
 import Cookpit from '../components/Cookpit/Cookpit';
-import WithClass from '../hoc/WithClass';
+import withClass from '../hoc/withClass';
+import Aux from '../hoc/Auxiliary';
 
 class App extends Component {
 
@@ -60,7 +61,7 @@ class App extends Component {
     }
 
     return (
-        <WithClass classes={classStyle.App}>
+        <Aux>
           <button onClick={() => { this.setState({ showCookpit: false }) }}>Remove Cookpit</button>
            { this.state.showCookpit ? 
               (
@@ -71,9 +72,9 @@ class App extends Component {
                 clicked={this.toogleHandler}/>
               ) : null }
            {persons} 
-        </WithClass>
+        </Aux>
       );
   }    
 }
 
-export default App;
+export default withClass(App, classStyle.App);
