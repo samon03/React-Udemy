@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import classStyle from './Cookpit.module.css';
 
 const Cookpit = (props) => {
 
+    const toogleRef = useRef(null);
+
     useEffect(() => {
-        console.log('[Cookpit] useEffect');
-        setTimeout(() => {
-            alert('Saved');
-        }, 1000);
+        toogleRef.current.click();
+
         return () => { 
             console.log("Clean up cookpit"); 
         }
@@ -31,7 +31,7 @@ const Cookpit = (props) => {
         <div className={classStyle.Cookpit}>
             <h1>{props.title}</h1>
             <p className={classes.join(' ')}>This is really working</p>
-            <button className={btnClass} onClick={props.clicked}>Display</button>
+            <button ref={toogleRef} className={btnClass} onClick={props.clicked}>Display</button>
         </div>
    )
 }

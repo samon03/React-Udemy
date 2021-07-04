@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import classStyle from './Person.module.css';
 import Aux from '../../../hoc/Auxiliary';
 import withClass from '../../../hoc/withClass';
