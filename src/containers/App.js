@@ -13,7 +13,8 @@ class App extends Component {
         { id:'dfev', name: 'Emon', age: 22 }
       ],
       showPersons: false,
-      showCookpit: true
+      showCookpit: true,
+      changeCounter: 0
   }
 
   toogleHandler = () => {
@@ -25,7 +26,7 @@ class App extends Component {
       // const persons = this.state.persons;
       const persons = [...this.state.persons];
       persons.splice(personIndex, 1);
-      this.setState({persons: persons});
+      this.setState({ persons: persons });
   }
 
   nameChangerHandler = (event, id) => {
@@ -41,7 +42,12 @@ class App extends Component {
     const persons = [...this.state.persons];
     persons[personIndex] = person;
 
-    this.setState({persons: persons});
+    this.setState((prevState, props) => {
+      return {
+        persons: persons, 
+        changeCounter: prevState.changeCounter + 1
+      }
+    });
 
   }
 
